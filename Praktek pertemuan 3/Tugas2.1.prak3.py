@@ -28,13 +28,6 @@ def permutasi_berkelompok(grup):
         hasil = hasil_baru
     return hasil
 
-def permutasi_buku_rak(n, r):
-    buku = [f"B{i+1}" for i in range(n)]
-    rak = [f"R{j+1}" for j in range(r)]
-    hasil = []
-    for distribusi in itertools.product(rak, repeat=n):
-        hasil.append(list(zip(buku, distribusi)))
-    return hasil
 
 # === FUNGSI UNTUK TAMPILAN DAN EKSEKUSI ===
 def tampilkan_hasil(judul, hasil):
@@ -79,12 +72,6 @@ def jalankan_permutasi_berkelompok():
     tampilkan_hasil("Permutasi Berkelompok", hasil)
     konfirmasi_lanjut()
 
-def jalankan_permutasi_buku_rak():
-    n = simpledialog.askinteger("Input Buku", "Masukkan jumlah buku (n):")
-    r = simpledialog.askinteger("Input Rak", "Masukkan jumlah rak (r):")
-    hasil = permutasi_buku_rak(n, r)
-    tampilkan_hasil(f"Permutasi Buku ({n} buku, {r} rak)", hasil)
-    konfirmasi_lanjut()
 
 # === GUI UTAMA ===
 root = tk.Tk()
@@ -101,7 +88,7 @@ tk.Button(frame, text="Permutasi Menyeluruh", width=25, command=jalankan_permuta
 tk.Button(frame, text="Permutasi Sebagian", width=25, command=jalankan_permutasi_sebagian).grid(row=0, column=1, padx=5, pady=5)
 tk.Button(frame, text="Permutasi Keliling", width=25, command=jalankan_permutasi_keliling).grid(row=1, column=0, padx=5, pady=5)
 tk.Button(frame, text="Permutasi Berkelompok", width=25, command=jalankan_permutasi_berkelompok).grid(row=1, column=1, padx=5, pady=5)
-tk.Button(frame, text="Permutasi Buku di Rak", width=25, command=jalankan_permutasi_buku_rak).grid(row=2, column=0, columnspan=2, pady=10)
+
 
 # Output box
 output_box = scrolledtext.ScrolledText(root, width=70, height=15)
